@@ -1,5 +1,7 @@
 defmodule QuoteTest do
   use ExUnit.Case
+  alias Parsers.Quote, as: Quote
+
   doctest Quote
 
   test "parses single line quote" do

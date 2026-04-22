@@ -1,5 +1,11 @@
 defmodule BlockParser do
-  @block_parsers [Heading, CodeBlock, Quote, UnorderedList, Paragraph]
+  @block_parsers [
+    Parsers.Heading,
+    Parsers.CodeBlock,
+    Parsers.Quote,
+    Parsers.UnorderedList,
+    Parsers.Paragraph
+  ]
 
   def find_parser(line) do
     Enum.find(@block_parsers, & &1.match?(line))

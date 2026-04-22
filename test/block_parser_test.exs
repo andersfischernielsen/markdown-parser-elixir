@@ -67,12 +67,12 @@ defmodule ParserTest do
                  type: "list",
                  children: [
                    %AST.Node{
-                     type: "bullet",
+                     type: "list_item",
                      value: nil,
                      children: [%AST.Node{type: "text", value: "First item"}]
                    },
                    %AST.Node{
-                     type: "bullet",
+                     type: "list_item",
                      value: nil,
                      children: [%AST.Node{type: "text", value: "Second item"}]
                    }

@@ -1,11 +1,12 @@
-defmodule Paragraph do
+defmodule Parsers.Paragraph do
   def match?(_) do
     true
   end
 
   defp block_line?(line) do
-    Heading.match?(line) or UnorderedList.match?(line) or Quote.match?(line) or
-      CodeBlock.match?(line)
+    Parsers.Heading.match?(line) or Parsers.UnorderedList.match?(line) or
+      Parsers.Quote.match?(line) or
+      Parsers.CodeBlock.match?(line)
   end
 
   def parse(lines) do

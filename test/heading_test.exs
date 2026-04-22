@@ -1,5 +1,7 @@
 defmodule HeadingTest do
   use ExUnit.Case
+  alias Parsers.Heading, as: Heading
+
   doctest Heading
 
   test "parses h1 without space" do

@@ -1,5 +1,7 @@
 defmodule UnorderedListTest do
   use ExUnit.Case
+  alias Parsers.UnorderedList, as: UnorderedList
+
   doctest UnorderedList
 
   test "parses single dash item" do
@@ -8,7 +10,7 @@ defmodule UnorderedListTest do
                 type: "list",
                 children: [
                   %AST.Node{
-                    type: "bullet",
+                    type: "list_item",
                     value: nil,
                     children: [%AST.Node{type: "text", value: "item"}]
                   }
@@ -22,7 +24,7 @@ defmodule UnorderedListTest do
                 type: "list",
                 children: [
                   %AST.Node{
-                    type: "bullet",
+                    type: "list_item",
                     value: nil,
                     children: [%AST.Node{type: "text", value: "item"}]
                   }
@@ -36,12 +38,12 @@ defmodule UnorderedListTest do
                 type: "list",
                 children: [
                   %AST.Node{
-                    type: "bullet",
+                    type: "list_item",
                     value: nil,
                     children: [%AST.Node{type: "text", value: "item 1"}]
                   },
                   %AST.Node{
-                    type: "bullet",
+                    type: "list_item",
                     value: nil,
                     children: [%AST.Node{type: "text", value: "item 2"}]
                   }
@@ -55,7 +57,7 @@ defmodule UnorderedListTest do
                 type: "list",
                 children: [
                   %AST.Node{
-                    type: "bullet",
+                    type: "list_item",
                     value: nil,
                     children: [%AST.Node{type: "text", value: "item"}]
                   }

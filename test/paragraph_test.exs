@@ -1,5 +1,7 @@
 defmodule ParagraphTest do
   use ExUnit.Case
+  alias Parsers.Paragraph, as: Paragraph
+
   doctest Paragraph
 
   test "parses single line paragraph" do

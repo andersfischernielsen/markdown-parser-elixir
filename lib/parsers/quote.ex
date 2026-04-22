@@ -1,4 +1,4 @@
-defmodule Quote do
+defmodule Parsers.Quote do
   def match?(input) do
     input |> String.trim_leading() |> String.starts_with?(">")
   end

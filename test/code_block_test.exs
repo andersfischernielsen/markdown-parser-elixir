@@ -1,5 +1,7 @@
 defmodule CodeBlockTest do
   use ExUnit.Case
+  alias Parsers.CodeBlock, as: CodeBlock
+
   doctest CodeBlock
 
   test "parses fenced code block" do

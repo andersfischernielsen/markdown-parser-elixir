@@ -1,11 +1,11 @@
-defmodule UnorderedList do
+defmodule Parsers.UnorderedList do
   def match?(input) do
-    input |> String.trim_leading() |> String.starts_with?("-") or
-      input |> String.trim_leading() |> String.starts_with?("*")
+    trimmed = input |> String.trim_leading()
+    trimmed |> String.starts_with?("-") or trimmed |> String.starts_with?("*")
   end
 
   defp build_list_node(text) do
-    %AST.Node{type: "bullet", value: nil, children: [%AST.Node{type: "text", value: text}]}
+    %AST.Node{type: "list_item", value: nil, children: [%AST.Node{type: "text", value: text}]}
   end
 
   defp consume_list([], acc), do: {Enum.reverse(acc), []}

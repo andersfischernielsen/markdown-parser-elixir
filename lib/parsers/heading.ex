@@ -1,4 +1,4 @@
-defmodule Heading do
+defmodule Parsers.Heading do
   def match?(input) do
     input |> String.trim_leading() |> String.starts_with?("#")
   end
