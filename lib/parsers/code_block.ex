@@ -1,8 +1,10 @@
 defmodule Parsers.CodeBlock do
+  @spec match?(binary()) :: boolean()
   def match?(input) do
     input |> String.trim_leading() |> String.starts_with?("```")
   end
 
+  @spec parse([String.t()]) :: {AST.Node.t(), [String.t()]}
   def parse([_open_fence | rest]) do
     {consumed, remaining} = Enum.split_while(rest, &(&1 != "```"))
 

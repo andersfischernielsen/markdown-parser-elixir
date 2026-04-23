@@ -8,8 +8,14 @@ defmodule MarkdownParser.MixProject do
       elixir: "~> 1.19",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      default_task: "parse"
+      dialyzer: [
+        plt_add_apps: [:mix]
+      ]
     ]
+  end
+
+  def cli do
+    [default_task: "parse"]
   end
 
   def application do
@@ -20,7 +26,8 @@ defmodule MarkdownParser.MixProject do
 
   defp deps do
     [
-      {:phoenix, "~> 1.8.5"}
+      {:phoenix, "~> 1.8.5"},
+      {:dialyxir, "~> 1.4.7", only: [:dev, :test], runtime: false}
     ]
   end
 end

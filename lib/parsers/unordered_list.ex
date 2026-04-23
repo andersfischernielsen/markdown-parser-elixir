@@ -1,4 +1,5 @@
 defmodule Parsers.UnorderedList do
+  @spec match?(binary()) :: boolean()
   def match?(input) do
     trimmed = input |> String.trim_leading()
     trimmed |> String.starts_with?("-") or trimmed |> String.starts_with?("*")
@@ -29,6 +30,7 @@ defmodule Parsers.UnorderedList do
     end
   end
 
+  @spec parse([String.t()]) :: {AST.Node.t(), [String.t()]}
   def parse(lines) do
     {items, remaining} = consume_list(lines, [])
     list_node = %AST.Node{type: "list", children: items}

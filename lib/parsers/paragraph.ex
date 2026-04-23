@@ -1,4 +1,5 @@
 defmodule Parsers.Paragraph do
+  @spec match?(binary()) :: boolean()
   def match?(_) do
     true
   end
@@ -9,6 +10,7 @@ defmodule Parsers.Paragraph do
       Parsers.CodeBlock.match?(line)
   end
 
+  @spec parse([String.t()]) :: {AST.Node.t(), [String.t()]}
   def parse(lines) do
     {consumed, remaining} =
       Enum.split_while(lines, fn line ->

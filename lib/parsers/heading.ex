@@ -1,8 +1,10 @@
 defmodule Parsers.Heading do
+  @spec match?(binary()) :: boolean()
   def match?(input) do
     input |> String.trim_leading() |> String.starts_with?("#")
   end
 
+  @spec parse([String.t()]) :: {AST.Node.t(), [String.t()]}
   def parse([line | rest]) do
     trimmed = String.trim_leading(line)
 

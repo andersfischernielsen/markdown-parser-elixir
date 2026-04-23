@@ -1,4 +1,5 @@
 defmodule Parsers.Quote do
+  @spec match?(binary()) :: boolean()
   def match?(input) do
     input |> String.trim_leading() |> String.starts_with?(">")
   end
@@ -22,6 +23,7 @@ defmodule Parsers.Quote do
     end
   end
 
+  @spec parse([String.t()]) :: {AST.Node.t(), [String.t()]}
   def parse(lines) do
     {items, remaining} = consume_quote(lines, [])
     list_node = %AST.Node{type: "quote", children: items}
